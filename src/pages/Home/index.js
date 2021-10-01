@@ -14,7 +14,7 @@ import Header from '../../components/Header';
 import { Feather } from '@expo/vector-icons'
 import SliderItem from '../../components/SliderItem';
 import api, { key } from '../../services/api'
-import { getListMovies } from '../../utils/movie'
+import { getListMovies } from '../../utils/movies'
 //import { useEffect, useState } from 'react';
 //import { Title } from '../../components/Header/styles';
 
@@ -42,7 +42,7 @@ function Home(){
                     params:{
                         api_key: key,
                         language: 'pt-BR',
-                        page:1,
+                        page:1
                     }
                 }),
                 api.get('/movie/popular', {
@@ -61,9 +61,9 @@ function Home(){
                 }),
             ])
 
-            const nowList = getListMovies(10, nowData.data.results);
-            const popularList = getListMovies(5, popularData.data.results);
-            const topList = getListMovies(5, topData.data.results);
+            const nowList = getListMovies(10,nowData.data.results);
+            const popularList = getListMovies(10,popularData.data.results);
+            const topList = getListMovies(5,topData.data.results);
 
             setNowMovies(nowList);
             setPopularMovies(popularList);
@@ -84,7 +84,7 @@ function Home(){
 
     return(
         <Container>
-            <Header title ="React Prime"/>
+            <Header title ="React Flix"/>
 
             <SearchContainer>
                 <Input

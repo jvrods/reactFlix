@@ -10,7 +10,7 @@ import {    Container,
 
 import { Ionicons } from '@expo/vector-icons'
  
-function SliderItem(){
+function SliderItem({ data }){
     return(
         <Container activeOpacity={0.7}>
             <BannerItem
